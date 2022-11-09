@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "c8e64d55-d1d3-4412-8f8c-2e6d6f8ce48e",
+		"name": "E-CommerceAPI-Garcia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17362625"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "REGISTER User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\" : \"Demo\",\r\n    \"lastName\" : \"Account\",\r\n    \"email\" : \"demo@mail.com\",\r\n    \"password\" : \"demo123\",\r\n    \"mobileNumber\" : \"099999999999\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AUTHENTICATE User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"customer@mail.com\",\r\n    \"password\": \"customer123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE User as admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTg0MDZkOTYzNWQ0MzZlODNjNzgzZiIsImVtYWlsIjoiYWRtaW5AbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NjI2ODIwODV9.HqjUmitdtIWfMacMptgXSyDYod7EZ6GB-7HYEC8bVL4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isAdmin\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/updateUser/631840ab9635d436e83c7842",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"updateUser",
+								"631840ab9635d436e83c7842"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CHECKOUT user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTgzZmY3OTYzNWQ0MzZlODNjNzgzYyIsImVtYWlsIjoicm9tZW5pY2tnYXJjaWFAbWFpbC5jb20iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjYyNjI3Nzg0fQ.ntHqnT7VzgQxOq0KOH3uMCOeRGoxH2vH6UUo4D2poNU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \r\n    \"products\" : [\r\n        {\r\n            \"productId\" : \"63182b10a09dada4c3e44d4b\",\r\n             \"productName\": \"Galaxy s22 plus\",\r\n            \"quantity\" : 2\r\n        },\r\n        {\r\n            \"productId\" : \"6319b0d27948db827154cfef\",\r\n             \"productName\": \"Predator\",\r\n            \"quantity\" : 2\r\n        }\r\n    ],\r\n    \"totalAmount\": 120999\r\n   \r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/checkout",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"checkout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET User Info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTg0MGFiOTYzNWQ0MzZlODNjNzg0MiIsImVtYWlsIjoiY3VzdG9tZXJAbWFpbC5jb20iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjYyNjE4NzE4fQ.LQrTb1dbsv9cEJOGg_6qNnxu41xpFfooueR56oe5_Do",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/profile",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET my orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTg0MGFiOTYzNWQ0MzZlODNjNzg0MiIsImVtYWlsIjoiY3VzdG9tZXJAbWFpbC5jb20iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjYyNjI0ODk3fQ.1LHgoFgHutHcX3T92iuKUzZSVXGhkdmPOC7lq8Yu0_o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/myOrders",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"myOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET all orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTg0MDZkOTYzNWQ0MzZlODNjNzgzZiIsImVtYWlsIjoiYWRtaW5AbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NjI2MjU3MDB9.1dYN46qq9jIzcencmFcFgnC3fiVKKOIFVxKNNIP1lyc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/allOrders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"allOrders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUCT",
+			"item": [
+				{
+					"name": "CREATE Product - Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTdmMjExNTY4OTdkYmQwZmY5YWExMiIsImVtYWlsIjoiYmlsbGdhdGVzQG1haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjYyNTI1NjMyfQ.JzZKwUA-jqEMv7ZuzwMXAUQTXWL7s7xq8ciKaqI5GTI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productBrand\" : \"Acer\",\r\n    \"productName\" : \"Predator\",\r\n    \"productType\" : \"laptop\",\r\n    \"productModel\" : \"H300\",\r\n    \"description\" : \"Acer predator  Helios 300\",\r\n    \"price\" : 50000,\r\n    \"stocks\" : 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ACTIVE Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/products/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL Products - Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTdmMjExNTY4OTdkYmQwZmY5YWExMiIsImVtYWlsIjoiYmlsbGdhdGVzQG1haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjYyNTI4NzYzfQ.f2oVG0s8VidMr-9Uix6jO6tO7zwjSUFZcnHESrYe-m0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/products/allProducts",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"allProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET SPECIFIC Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/search/63181f6685d5bff554e117dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"search",
+								"63181f6685d5bff554e117dd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Product Info - Admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTg0MDZkOTYzNWQ0MzZlODNjNzgzZiIsImVtYWlsIjoiYWRtaW5AbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NjI1Mzk1MDR9.66MjiToR8WtqHzB0dfByx04GNkX28pKsA8CJpD2YqY4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"Get the latest iPhone 13 Pro Max and get a free P4000 gift vaoucher in Lazada\",\r\n    \"price\": 50000,\r\n    \"stocks\": 20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/products/updateProduct/63181f6685d5bff554e117dd",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"updateProduct",
+								"63181f6685d5bff554e117dd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ARCHIVE Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTg0MDZkOTYzNWQ0MzZlODNjNzgzZiIsImVtYWlsIjoiYWRtaW5AbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NjI1NDQ5NzF9.AhNmbIqp3Xy8jY6ZLpR25mpA7yW6UelVjhl_BULlpqk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/products/631821b985d5bff554e117fb/archive",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"631821b985d5bff554e117fb",
+								"archive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ARCHIVES - Products (Soft Deleted)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTg0MGFiOTYzNWQ0MzZlODNjNzg0MiIsImVtYWlsIjoiY3VzdG9tZXJAbWFpbC5jb20iLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2NjI2ODMzNjN9.TB7Th9wBSGswcBs0-YP_Jd7qxfd7o5nsFWd-9pjcYOQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/products/archives",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"products",
+								"archives"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
